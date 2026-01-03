@@ -1,1 +1,156 @@
 // app global css in SCSS form
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #111111;
+  --secondary: #666666;
+  --accent: #2563eb;
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  color: var(--primary);
+  background-color: var(--bg-body);
+  transition: background-color 0.3s ease;
+}
+
+// Typography Overrides
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+}
+
+.text-subtitle1,
+.text-subtitle2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+// Utility Classes for Modern UI
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+.bg-soft {
+  background-color: #f1f5f9;
+}
+
+.card-modern {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: #cbd5e1;
+  }
+}
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.sidebar-glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--border-color);
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+// Quasar Overrides
+.q-btn {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: none; /* remove extensive caps */
+  border-radius: 8px;
+
+  &.q-btn--unelevated {
+    box-shadow: none !important;
+  }
+}
+
+.q-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.q-drawer {
+  background: transparent; // Allow glass effect
+}
+
+.q-item {
+  border-radius: 8px;
+  margin: 4px 8px;
+  transition: all 0.2s ease;
+
+  &.q-router-link--active,
+  &.q-item--active {
+    background-color: #0f172a !important; /* Slate-900 */
+    color: white !important;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    .q-icon {
+      color: #38bdf8; /* Sky-400 */
+    }
+  }
+
+  &:hover:not(.q-item--active) {
+    background-color: #f1f5f9;
+    color: #0f172a;
+  }
+}
+
+.q-table__card {
+  box-shadow: none;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.q-table th {
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
